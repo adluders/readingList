@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+li {
+  list-style-type: none;
+}
+
+.alert {
+  border: solid red;
+  margin: 1rem auto;
+  max-width: 50%;
+}
+
+.success {
+  background-color: green;
+  color: white;
+}
+
+.warning {
+  background-color: red;
+  color: white;
+}
+
+.form-group {
+  /* border: solid red; */
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  max-width: 50%;
+  margin: 1rem auto;
+}
+
+input {
+  border-radius: 0.2rem;
+  padding: 0.3rem;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  background-color: transparent;
+}
+
+input[type="submit"] {
+  cursor: pointer;
+  width: 50%;
+  margin-top: 0.2rem;
+}
+
+input[type="submit"]:hover {
+  background-color: #949494;
+  color: #fff;
+}
+
+.booklist {
+  margin: 2rem 0;
+}
+
+.book-detail {
+  display: flex;
+  max-width: 90%;
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.book-header {
+  border-bottom: double black;
+  padding: 0.4rem 0rem;
+}
+
+.book-info {
+  margin-top: 0.5rem;
+}
+
+.close-btn {
+  background-color: red;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  color: #fff;
+  cursor: pointer;
+}

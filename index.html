@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Add Book</h1>
+
+    <div class="alert">
+      <p>You've successfully added a book!</p>
+    </div>
+
+    <form id="book-form">
+      <div class="form-group">
+        <label for="title">Book Title</label>
+        <input type="text" name="title" id="title" />
+      </div>
+      <div class="form-group">
+        <label for="author">Author</label>
+        <input type="text" name="author" id="author" />
+      </div>
+      <div class="form-group">
+        <label for="book-id">ISBN</label>
+        <input type="text" name="book-id" id="book-id" />
+      </div>
+      <input type="submit" id="submit" value="Submit" />
+    </form>
+
+    <div class="booklist">
+      <ul class="book-header book-detail">
+        <li>Title</li>
+        <li>Author</li>
+        <li>ISBN</li>
+        <li></li>
+      </ul>
+
+      <ul class="book-info book-detail">
+        <li class="title">Title 1</li>
+        <li class="author">Author 1</li>
+        <li class="isbn">1234</li>
+        <li class="close-btn">X</li>
+      </ul>
+
+      <ul class="book-info book-detail">
+        <li class="title">Title 2</li>
+        <li class="author">Author 2</li>
+        <li class="isbn">1234</li>
+        <li class="close-btn">X</li>
+      </ul>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
