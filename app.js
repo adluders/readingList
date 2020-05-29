@@ -10,12 +10,21 @@
 
 const booklist = document.getElementsByClassName("booklist");
 const bookForm = document.getElementById("book-form");
-const removeBtn = document.querySelectorAll(".close-btn");
+const removeBtn = document.querySelector(".booklist");
 const alert = document.querySelector(".alert");
 
-removeBtn.forEach((btn) => console.log(btn));
+console.log(bookForm);
+
 // Hide Alert mssg on load
 alert.style.display = "none";
+
+// Work on alert
+function showAlert(className, mssg) {
+  return `
+  <div ${className} alert>
+    <p> ${mssg} </p>
+  </div>`;
+}
 
 function createBook(e) {
   e.preventDefault();
@@ -54,6 +63,8 @@ function createBook(e) {
   // Add each new ul to book list div
   booklist[0].append(generatedBook);
 
+  // Validate form
+
   // Reset inputs value
   titleInput.value = "";
   authorInput.value = "";
@@ -68,4 +79,12 @@ function createBook(e) {
   }, 2000);
 }
 
+function removeBook(e) {
+  if (!e.target.matches(".close-btn")) {
+    return;
+  }
+  e.target.parentElement.style.display = "none";
+}
+
 bookForm.addEventListener("submit", createBook);
+removeBtn.addEventListener("click", removeBook);
