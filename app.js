@@ -12,19 +12,23 @@ const booklist = document.getElementsByClassName("booklist");
 const bookForm = document.getElementById("book-form");
 const removeBtn = document.querySelector(".booklist");
 const alert = document.querySelector(".alert");
-
-console.log(bookForm);
+const mssg = document.querySelector(".mssg");
 
 // Hide Alert mssg on load
 alert.style.display = "none";
 
 // Work on alert
-function showAlert(className, mssg) {
-  return `
-  <div ${className} alert>
-    <p> ${mssg} </p>
-  </div>`;
+function showAlert(className, message) {
+  // return `
+  // <div class=${className} alert>
+  //   <p> ${mssg} </p>
+  // </div>`;
+  // console.log(alert);
+  alert.classList.add(className);
+  mssg.innerHTML = message;
 }
+
+// console.log(showAlert("success", "message"));
 
 function createBook(e) {
   e.preventDefault();
@@ -60,30 +64,48 @@ function createBook(e) {
   // create li node for each book detail
   bookInfo.forEach((info) => generatedBook.appendChild(info));
 
-  // Add each new ul to book list div
-  booklist[0].append(generatedBook);
-
   // Validate form
+  if (
+    titleInput.value === "" ||
+    authorInput.value === "" ||
+    bookID.value === ""
+  ) {
+    alert.children[0].innerText = "Please Fill out Form";
+    alert.classList.add("alert", "warning");
+    // Display alert
+    alert.style.display = "block";
+    console.log("empty");
+  } else {
+    console.log("filled");
+    alert.classList.add("alert", "success");
+    alert.children[0].innerText = "Book Added";
+    // Display alert
+    alert.style.display = "block";
+    // Add each new ul to book list div
+    booklist[0].append(generatedBook);
+  }
 
   // Reset inputs value
   titleInput.value = "";
   authorInput.value = "";
   bookID.value = "";
 
-  // Display alert
-  alert.style.display = "block";
-
   // remove Alert
   setTimeout(() => {
-    alert.style.display = "none";
+    alert.remove();
+    alert.classList = "";
   }, 2000);
 }
+
+/**
+ * Set it up where you call the create book function ONLY if the form is filled. If any of them are blank, make sure to display warning alert
+ */
 
 function removeBook(e) {
   if (!e.target.matches(".close-btn")) {
     return;
   }
-  e.target.parentElement.style.display = "none";
+  e.target.parentElement.remove();
 }
 
 bookForm.addEventListener("submit", createBook);

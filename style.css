@@ -14,7 +14,6 @@ li {
 }
 
 .alert {
-  border: solid red;
   margin: 1rem auto;
   max-width: 50%;
 }
